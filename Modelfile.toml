@@ -1,0 +1,41 @@
+name = "geolift"
+run = "docker run --rm -v \"$PWD/run:/run\" ${IMAGE} ${ARGS} > run/geolift_summary.output.json"
+image = "geolift-runner:local"
+args = ["{input:lift_input}"]
+
+[[inputs]]
+name = "lift_input"
+
+[inputs.schema]
+type = "object"
+required = []
+
+[inputs.schema.properties.config]
+type = "object"
+description = "Optional synthetic geo-test settings such as treatment window, treated locations, lift percentage, and demo panel size."
+
+[[outputs]]
+name = "geolift_summary"
+
+[outputs.schema]
+type = "object"
+required = ["model", "data_source", "config", "treatment", "results", "donor_weights"]
+
+[outputs.schema.properties.model]
+type = "string"
+
+[outputs.schema.properties.data_source]
+type = "string"
+
+[outputs.schema.properties.config]
+type = "object"
+
+[outputs.schema.properties.treatment]
+type = "object"
+
+[outputs.schema.properties.results]
+type = "object"
+
+[outputs.schema.properties.donor_weights]
+type = "array"
+description = "Top synthetic-control donor weights for the demo run."

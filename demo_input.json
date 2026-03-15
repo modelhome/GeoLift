@@ -1,0 +1,15 @@
+{
+  "config": {
+    "seed": 11,
+    "num_locations": 10,
+    "num_periods": 40,
+    "treatment_locations": ["geo_1", "geo_2"],
+    "treatment_start_time": 31,
+    "treatment_end_time": 36,
+    "lift_pct": 0.12,
+    "model": "none",
+    "alpha": 0.1,
+    "stat_test": "Total",
+    "confidence_intervals": false
+  }
+}
